@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Peek</title>
+	</head>
+
+	<body>
+		<script src="/static/js/lib/jquery.js"></script>
+  		<script src="/static/js/lib/strophe.js"></script>
+  		<script src="/static/js/lib/flXHR.js"></script>
+  		<script src="/static/js/lib/strophe.flxhr.js"></script>
+      <script src="/static/js/lib/jquery.cookies.2.2.0.min.js"></script>
+  		<script src="/static/js/xmpp.js"></script>
+
+  		<h1>Peek</h1>
+  		<div id="console"></div>
+  		<textarea id="input" disabled='disabled'></textarea>
+
+  		<div id="buttonbar">
+  			<input id="send_button" type="submit" value="Send data" disabled='disabled'>
+  			<input id="disconnect_button" type="submit" value="Disconnect" disabled='disabled'>
+  		</div>
+
+  		<div id='login-div'>
+    		<label>JID: </label><input type='text' id='jid'>
+    		<label>Password: </label><input type='password' id='password'>
+   			<button id="openfire-connect">Login openfire</button>
+  		</div>
+	</body>
+</html>

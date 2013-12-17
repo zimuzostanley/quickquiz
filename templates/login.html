@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>QuickQuiz Login</title>
+
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/foundation.css">
+  <link rel="stylesheet" href="/static/css/quickquiz.css">
+
+  <script src="/static/js/lib/custom.modernizr.js"></script>
+
+</head>
+<body style="background-color: #fefefe;">
+  <div id="login-wrapper" class="row" >
+    <div class="small-12 large-centered large-4 columns" style="background-color: #f5f5f5; padding-bottom: 70px; padding-top: 10px; margin-top: 50px;">
+      <h3 class="large-centered columns large-12 sub-header" style="font-weight: 90;">QuickQuiz Login</h3>
+       <hr/>
+      <form id="login-form">
+        <p>{{ error_msg }}</p>
+        <input type="text" id='jid' name="username" placeholder="Username" autofocus/>
+        <input type="password" id='password' name="password" placeholder="Password"/>
+        <a id="login-btn" href="#" class="small-12 columns button radius">Login</a>
+      </form>
+    </div>
+  </div>
+
+  <div id="console"></div>
+
+  <script>
+  document.write('<script src=\/static\/js\/lib\/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="/static/js/lib/jquery.js"></script>
+  <script src="/static/js/lib/strophe.js"></script>
+  <script src="/static/js/lib/flXHR.js"></script>
+  <script src="/static/js/lib/strophe.flxhr.js"></script>
+  <script src="/static/js/lib/underscore-min.js"></script>
+  <script src="/static/js/lib/backbone-min.js"></script>
+  <script src="/static/js/lib/foundation.min.js"></script>
+
+  <script src="/static/js/lib/jquery.cookies.2.2.0.min.js"></script>
+  <script src="/static/js/xmpp.js"></script>
+  <script src="/static/js/app.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+<!-- End Footer -->
+
+</body>
+</html>

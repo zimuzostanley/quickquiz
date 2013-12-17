@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>QuickQuiz</title>
+
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/foundation.css">
+  <link href="/static/css/quickquiz.css" rel="stylesheet">
+
+  <script src="/static/js/lib/custom.modernizr.js"></script>
+
+  <script type="text/javascript">
+    if('{{ is_tutor }}' == 'True') {
+      localStorage.setItem('is_tutor', true);
+    }
+    else if ('{{ is_tutor }}' == 'False') {
+      localStorage.setItem('is_tutor', false);
+    }
+  </script>
+
+
+
+</head>
+<body>
+  <div id="topbar-wrapper"></div>
+  <div id="page" class="row">
+    <div id="quizes-wrapper" class="columns large-9 large-centered"></div>
+    <ul id="groups-wrapper" class="small-block-grid-2 columns large-9 large-centered" ></ul>
+    <div id="questions-wrapper" class="columns large-9 large-centered"></div>
+  </div>
+
+  <div id="console"></div>
+
+
+  <script>
+  document.write('<script src=\/static\/js\/lib\/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="/static/js/lib/jquery.js"></script>
+  <script src="/static/js/lib/strophe.js"></script>
+  <script src="/static/js/lib/flXHR.js"></script>
+  <script src="/static/js/lib/strophe.flxhr.js"></script>
+  <script src="/static/js/lib/underscore-min.js"></script>
+  <script src="/static/js/lib/backbone-min.js"></script>
+  <script src="/static/js/lib/foundation.min.js"></script>
+  <script src="/static/js/lib/jquery.blockUI.js"></script>
+  <script src="/static/js/lib/jquery.cookies.2.2.0.min.js"></script>
+  <script src="/static/js/xmpp.js"></script>
+  <script src="/static/js/app.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+  <script id="question-number-template" type="text/template">
+    <div class="row question-number-row">
+      <input type="checkbox" class="columns large-1" style="cursor: pointer;"><label class="large-1 columns" style="font-size: 20px;"><%= index %></label>
+    </div>
+    <h4></h4>
+    </hr>
+  </script>
+
+  <script id="question-template" type="text/template">
+
+    <ul class="pricing-table">
+      <li class="title">Question <%= index %></li>
+      <li class="price"><%= question %></li>
+      <li class="description">Score: <%= score %></li>
+      <li class="bullet-item question-option">A <%= optionA %></li>
+      <li class="bullet-item question-option">B <%= optionB %></li>
+      <li class="bullet-item question-option">C <%= optionC %></li>
+      <li class="bullet-item question-option">D <%= optionD %></li>
+      <li class="bullet-item question-option">E <%= optionE %></li>
+      <li class="cta-button"><a class="button question-submit" href="#">Submit</a></li>
+    </ul>
+  </script>
+
+  <script id="group-template" type="text/template">
+    <ul class="pricing-table group-row">
+    <li class="title"><%= name %> ---- <%= score %></li>
+    <% _.each(students, function(element, index, list) { %>
+      <li class="bullet-item"> <%= element.username %> --- <span id="<%= element.username %>-status">Offline</span></li>
+    <% }) %>
+    </ul>
+  </script>
+
+  <script id="quiz-template" type="text/template">
+    <div class="row quiz-row">
+      <div class="small-6 columns"><%= name %></div> 
+      <div class="small-2 small-offset-4 columns"><a href="#" class="tiny radius button">Join Quiz</a></div>
+    </div>
+    <h4></h4>
+    </hr>
+  </script>
+
+  <script id="topbar-template" type="text/template">
+    <div class="fixed contain-to-grid">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name"><h1><a href="#">QuickQuiz</a></h1></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="left">
+            <li class="divider"></li>
+            <li class="available-quiz-nav"><a href="#quiz/available">Available Quizes</a></li>
+            <li class="divider"></li>
+            <li class="current-quiz-nav"><a href="#quiz/current">Current Quiz</a></li>
+            <li class="divider"></li>
+          </ul>
+
+          <ul class="right">
+            <li><a href="/quickquiz/user_logout" class="button logout-btn" class="button">Logout</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+  </script>
+
+  
+  <script src="/static/js/model/model.js"></script>
+  <script src="/static/js/collection/collection.js"></script>
+  <script src="/static/js/view/view.js"></script>
+  <script src="/static/js/router/router.js"></script>
+
+
+ 
+ 
+<!-- End Footer -->
+
+</body>
+</html>
